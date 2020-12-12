@@ -15,6 +15,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageComponent } from './components/message/message.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     AdminComponent,
-    AddDistListComponent
+    AddDistListComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

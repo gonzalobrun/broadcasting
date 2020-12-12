@@ -12,9 +12,9 @@ export class AddDistListComponent implements OnInit {
 
   constructor(fb: FormBuilder) {
     this.newListForm = fb.group({
-      title: new FormControl('', [Validators.required]),
-      owner: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required])
+      title: new FormControl(''),
+      owner: new FormControl(''),
+      description: new FormControl('')
     })
   }
 

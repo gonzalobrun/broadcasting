@@ -1,0 +1,13 @@
+<form [formGroup]="newMessageForm">
+    <mat-dialog-content>
+        <p class="title">Send a new message</p>
+        <div>
+            <label for="message">Message</label>
+            <input matInput name="message" formControlName="message">
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="newMessageForm.value">Send</button>
+    </mat-dialog-actions>
+</form>

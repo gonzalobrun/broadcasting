@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { BroadcasterService } from 'src/app/services/broadcaster.service';
 import { AddDistListComponent } from '../add-dist-list/add-dist-list.component';
+import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-admin',
@@ -34,12 +37,14 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,
+              public broadcasterService: BroadcasterService,
+              private router: Router) {}
 
   ngOnInit(): void {
   }
 
-  openDialog() {
+  openNewListDialog() {
     const dialogRef = this.dialog.open(AddDistListComponent);
 
     dialogRef.afterClosed().subscribe(result => {
@@ -47,4 +52,18 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  openNewMessageDialog() {
+    const dialogRef = this.dialog.open(MessageComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.broadcasterService.broadcast(result).subscribe(
+        (res) => console.log(res)
+      );
+    });
+  }
+
+  logOut() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
 }

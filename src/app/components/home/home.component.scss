@@ -2,20 +2,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 2% 5%;
 
     header {
         display: flex;
-        place-items: flex-end;
         justify-content: space-between;
         margin-bottom: 50px;
+        background-color: whitesmoke;
+        padding: 2% 5%;
 
         .logo {
             h1 {
-                font-size: 46px;
+                font-size: 45px;
                 font-weight: 500;
             }
-            
         }
     }
 
@@ -24,6 +23,10 @@
             list-style: none;
             list-style-type: none;
             display: flex;
+            
+            a {
+                text-decoration: none;
+            }
         }
     }
 
@@ -39,10 +42,13 @@
         line-height: 28px;
         display: flex;
         place-items: flex-start;
-        
+        padding: 2% 5%;
+
+
         section {
             display: inline-block;
             width: 50%;
+            padding-right: 24px;
         }
 
         &:nth-child(odd) {
