@@ -13,7 +13,7 @@ export class BroadcasterService {
   broadcast(data: any): Observable<any> {
     const url = 'https://apibroadcasting.herokuapp.com/sms';
     const params = new HttpParams()
-      .set('to_phone_number', '5493471530073')
+      .set('msg_type', 'broadcast')
       .set('msg', data.message);
     return this.http.post<any>(url, params)
     .pipe(
