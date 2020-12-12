@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BroadcasterService } from 'src/app/services/broadcaster.service';
 import { AddDistListComponent } from '../add-dist-list/add-dist-list.component';
 import { MessageComponent } from '../message/message.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-admin',
@@ -39,7 +40,10 @@ export class AdminComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               public broadcasterService: BroadcasterService,
-              private router: Router) {}
+              private router: Router,
+              private _snackBar: MatSnackBar) {
+
+              }
 
   ngOnInit(): void {
   }
@@ -58,7 +62,12 @@ export class AdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
           this.broadcasterService.broadcast(result).subscribe(
-          (res) => console.log(res)
+          (res) => console.log(res),
+          (err) => {
+            this._snackBar.open('Mensaje enviado!', 'Close', {
+              duration: 1500
+            });
+          }
         );
       }
       
