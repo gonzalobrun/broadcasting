@@ -9,11 +9,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [LoginGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: []
   },
   {
     path: 'admin',
