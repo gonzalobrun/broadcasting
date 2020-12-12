@@ -1,1 +1,21 @@
-<p>add-dist-list works!</p>
+<form [formGroup]="newListForm">
+    <mat-dialog-content>
+        <p class="title">Add a new list</p>
+        <div>
+            <label for="title">Owner</label>
+            <input matInput name="title" formControlName="title">
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <input matInput name="description" formControlName="description">
+        </div>
+        <div>
+            <label for="owner">Owner</label>
+            <input matInput name="owner" formControlName="owner">
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button [mat-dialog-close]="newListForm.value">Create</button>
+    </mat-dialog-actions>
+</form>

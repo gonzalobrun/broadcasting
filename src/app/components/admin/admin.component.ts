@@ -43,7 +43,7 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(AddDistListComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      console.log(result);
     });
   }
 

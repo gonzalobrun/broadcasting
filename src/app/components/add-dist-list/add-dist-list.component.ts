@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-dist-list',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDistListComponent implements OnInit {
 
-  constructor() { }
+  newListForm: FormGroup;
+
+  constructor(fb: FormBuilder) {
+    this.newListForm = fb.group({
+      title: new FormControl('', [Validators.required]),
+      owner: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required])
+    })
+  }
 
   ngOnInit(): void {
   }
