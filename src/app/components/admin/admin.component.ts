@@ -56,9 +56,12 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(MessageComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      this.broadcasterService.broadcast(result).subscribe(
-        (res) => console.log(res)
-      );
+      if (result) {
+          this.broadcasterService.broadcast(result).subscribe(
+          (res) => console.log(res)
+        );
+      }
+      
     });
   }
 
