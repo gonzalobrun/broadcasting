@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "broadcasting"
+  "defaultProject": "broadcasting",
+  "cli": {
+    "analytics": false
+  }
 }
